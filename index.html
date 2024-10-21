@@ -202,7 +202,7 @@
     <!-- Seção superior -->
 
     <section class="superior__secao__container">
-      <button class="superior__prev">Prev</button>
+      <button class="superior__prev"><</button>
       <a class="superior__item" href="#">Tudo</a>
       <a class="superior__item" href="#">Debates</a>
       <a class="superior__item" href="#">Ao Vivo</a>
@@ -214,7 +214,7 @@
       <a class="superior__item" href="#">Linguagem de Programação</a>
       <a class="superior__item" href="#">Ciência da Computação</a>
       <a class="superior__item" href="#">Marketing</a>
-      <button class="superior__next">Prev</button>
+      <button class="superior__next">></button>
     </section>
 
     <!-- Vídeos -->
@@ -612,14 +612,16 @@
     <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
 
     <script>
-      var swiper = new Swiper(".swiper-container", {
-        slidesPerView: "auto",
-        spaceBetween: 10,
-        navigation: {
-          nextEl: ".swiper-button-next",
-          prevEl: ".swiper-button-prev",
-        },
-        freeMode: true,
+      const container = document.querySelector(".superior__secao__container");
+      const nextButton = document.querySelector(".superior__next");
+      const prevButton = document.querySelector(".superior__prev");
+
+      nextButton.addEventListener("click", () => {
+        container.scrollBy({ left: 200, behavior: "smooth" });
+      });
+
+      prevButton.addEventListener("click", () => {
+        container.scrollBy({ left: -200, behavior: "smooth" });
       });
     </script>
   </body>
